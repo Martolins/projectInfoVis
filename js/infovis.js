@@ -5,8 +5,8 @@ var t = 1000;
 
 
 var svg = d3.select("body").append("svg")
-    .attr("width", width + margin.left + margin.right)     // i.e., 800 again
-    .attr("height", height + margin.top + margin.bottom)// i.e., 300 again
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
 
 //load data from json
 d3.json("data/casette.json")
@@ -16,10 +16,12 @@ d3.json("data/casette.json")
 
 
 function main(data) {
+
+    //center of each house
     var x=0;
     var y=150;
 
-    //draw
+    //draw each house at a distance of 100
     for(let i = 0; i<data.length; i++) {
         draw(data[i],i,x,y);
         x+=100;
@@ -41,7 +43,7 @@ function main(data) {
             d3.selectAll(".rect").style('fill', "#ffccbc");
         });
 
-    //mouseover all chimney
+    //mouseover all chimneys
     d3.selectAll('.chimney')
         .on("mouseover", function () {
             d3.selectAll('.chimney').style("fill","#5d4037")})
@@ -181,6 +183,7 @@ function move(position){
 
 }
 
+//draw houses
 function draw(data,i,x,y) {
     var casetta = svg.append("g")
 
