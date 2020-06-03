@@ -24,6 +24,7 @@ function main(data) {
     //draw each house at a distance of 100
     for(let i = 0; i<data.length; i++) {
         draw(data[i],i,x,y);
+
         x+=100;
     }
 
@@ -174,7 +175,7 @@ function orderByHouseWidth(){
     move(position);
 }
 
-//move objects
+//move objects in the right position
 function move(position){
     for(let i=0; i <position.length;i++){
         d3.selectAll("#casetta"+i).selectAll(".casetta").transition().duration(t)
